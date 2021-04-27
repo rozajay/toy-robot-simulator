@@ -16,6 +16,10 @@ describe('Checks that the initial place is set for the robot', () => {
     ['PLACE 1,2', false],
     ['0,0,NORTH', false],
     ['random text', false],
+    ['PLACE -1,2,EAST', false],
+    ['PLACE 1,5,EAST', false],
+    ['PLACE 5,1,EAST', false],
+
   ])('Invalid inputs', (inputString, expected) => {
     expect(validFirstStep(inputString)).toBe(expected);
   });
