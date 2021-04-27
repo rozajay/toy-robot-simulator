@@ -1,11 +1,22 @@
-import validFirstStep from "./validFirstStep";
+import validFirstStep from './validFirstStep';
 
-const findInitialPosition = (inputStep:string):number[]|undefined => {
-  const findPositionInString = inputStep.match(/\d+/g);
+interface PositionInfo {
+  xPos: number,
+  yPos: number,
+  facingDirection: string
+}
+
+const findInitialPosition = (inputStep:string):PositionInfo|undefined => {
   const isValidFirstStep = validFirstStep(inputStep);
-  if (isValidFirstStep && findPositionInString) {
+  const findPositionInString = inputStep.match(/\d+/g);
+  const findFacingDirection = inputStep.match(/\b((?:NORTH|SOUTH|EAST|WEST))\b/i);
+  if (isValidFirstStep && findPositionInString && findFacingDirection) {
     const positionAsNumber = findPositionInString.map((position) => parseInt(position, 10));
-    return positionAsNumber;
+    return {
+      xPos: positionAsNumber[0],
+      yPos: positionAsNumber[1],
+      facingDirection: findFacingDirection[0],
+    };
   }
   return undefined;
 };
