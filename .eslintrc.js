@@ -17,6 +17,7 @@ module.exports = {
     'import/extensions': 'off',
     'import/no-unresolved': 'off',
     'no-await-in-loop': 'off',
-    "no-console": "off",
+    'no-console': 'off',
+    semi: 'off',
   },
 };
