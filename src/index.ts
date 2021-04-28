@@ -31,7 +31,7 @@ rl.on('line', (input) => {
     console.log(`All received instructions: [ ${instructions} ]`);
     const finalPosition = findFinalPosition(instructions);
     if (finalPosition) {
-      console.log(finalPosition);
+      console.log(`${finalPosition.xPos},${finalPosition.yPos},${finalPosition.facingDirection}`);
     } else {
       console.log('Invalid Input, please refer to instructions and reEnter.');
     }
